@@ -2,7 +2,7 @@ const router = require("express").Router();
 const User =require("../models/user")
 const {authenticationToken} = require("./userAuth")
 
-router.put("add-book-to-favourite",authenticationToken, async(req,res)=>{
+router.put("/add-book-to-favourite",authenticationToken, async(req,res)=>{
     try {
         const {bookid,id}=req.headers;
         const userData = await User.findById(id);
@@ -17,7 +17,7 @@ router.put("add-book-to-favourite",authenticationToken, async(req,res)=>{
     }
 })
 
-router.put("delete-book-from-favourite",authenticationToken, async(req,res)=>{
+router.put("/delete-book-from-favourite",authenticationToken, async(req,res)=>{
     try {
         const {bookid,id}=req.headers;
         const userData = await User.findById(id);
